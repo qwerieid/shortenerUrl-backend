@@ -1,0 +1,21 @@
+# @name 3.1 generate shortener Url
+
+POST http://localhost:8080/urls
+accept: */*
+Content-Type: application/json-patch+json
+
+{
+  "originalUrl": "https://www.google.com/search?q=china+nature&tbm=isch&ved=2ahUKEwiu_MH4sOWDAxU0P1kFHZOMDrUQ2-cCegQIABAA&oq=china+nat&gs_lcp=CgNpbWcQARgBMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjIECAAQHjoECCMQJzoKCAAQgAQQigUQQ1CTBFjKIGDCK2gAcAB4AIABXYgB_QOSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=r0ioZe5otP7k2g-TmbqoCw&bih=760&biw=1512&prmd=ivnmsbtz&rlz=1C5GCEM_enCA1037CA1037#imgrc=lTBeRR18rwF4CM"
+}
+
+###
+# @name 3.2 Get all Urls
+GET http://localhost:8080/urls
+
+###
+# @name 3.3 Get Url by shortenerUrl
+GET http://localhost:8080/urls/a96ad658
+
+###
+# @name 3.4 delete all urls
+POST http://localhost:8080/urls/deleteAll
