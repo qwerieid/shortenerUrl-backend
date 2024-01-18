@@ -13,6 +13,7 @@ import com.notarius.shortener.repository.UrlShortenerRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,7 +61,8 @@ public class UrlShortenerServiceImpl implements UrlShortenerService {
 
     @Override
     public List<UrlDto> listAll() {
-        return urlShortenerRepository.findAll().stream()
+         Sort descendingSort = Sort.by(Sort.Order.desc("createdAt")); // Assuming 'createdAt' is the field to sort by
+        return urlShortenerRepository.findAll(descendingSort).stream()
                 .map(urlDto -> urlMapper.toV1Resource(urlDto)).toList();
     }
 
